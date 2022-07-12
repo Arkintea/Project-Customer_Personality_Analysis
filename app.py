@@ -1,8 +1,7 @@
 from flask import Flask
 import sys
-import project_name
-from project_name.logger import logging
-from project_name.exception import nameException
+from customer_personality.logger import logging
+from customer_personality.exception import Customer_PersonalityException
 
 app=Flask(__name__)
 
@@ -11,8 +10,8 @@ def index():
     try:
         raise Exception("We are testing custom exception")
     except Exception as e:
-        project_name = nameException(e, sys)
-        logging.info(project_name.error_message)
+        customer_personality = Customer_PersonalityException(e, sys)
+        logging.info(customer_personality.error_message)
         logging.info("We are testing logging module")
     return "CI CD pipeline has been established."
 
